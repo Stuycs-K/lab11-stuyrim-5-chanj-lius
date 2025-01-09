@@ -18,5 +18,14 @@ Make a clear list of features that work/dont work
 
 ## Adventurer Subclasses
 
-replace this with your documentation for your two Adventurer subclasses. If you modify or replace the provided CodeWarrior class, please provide documentation for that as well.
+Wizard:
+- Deals more damage
+- Has low health (lowest of the three)
+- Support: gain energy by doing nothing
+- Special: Uses big energy for big attack
 
+Thief:
+- Deals less damage
+- Has medium health (more than wizard, less than codewarrior)
+- Support: steal energy from enemy and give it to allies
+- Special: deal damage (more than usual) and weaken enemies
