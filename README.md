@@ -21,7 +21,8 @@ Make a clear list of features that work/dont work
 Wizard:
 - Deals more damage
 - Has low health (lowest of the three)
-- Support: gain energy by doing nothing
+- Support: use mana to heal allies
+- Support 2: gain energy by doing nothing
 - Special: Uses big energy for big attack
 
 Thief:
