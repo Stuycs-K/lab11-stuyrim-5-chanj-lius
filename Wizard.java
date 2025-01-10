@@ -7,4 +7,20 @@ public class Wizard extends Adventurer{
     this.mana = 50;
     this.maxMana = 50;
   }
+
+  public String getSpecialName(){
+    return "mana";
+  }
+
+  public int getSpecial(){
+    return mana;
+  }
+
+  public void setSpecial(int n){
+    mana = n;
+  }
+
+  public int getSpecialMax(){
+    return maxMana;
+  }
 }
