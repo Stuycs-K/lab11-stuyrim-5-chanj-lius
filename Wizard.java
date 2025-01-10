@@ -23,4 +23,10 @@ public class Wizard extends Adventurer{
   public int getSpecialMax(){
     return maxMana;
   }
+
+  @Override
+  public String attack(Adventurer other){
+    other.applyDamage(5);
+    return this.getName() + " used attack! " + other.getName() + " has suffered 5 damage from " + this.getName() + "'s magical genius!";
+  }
 }
