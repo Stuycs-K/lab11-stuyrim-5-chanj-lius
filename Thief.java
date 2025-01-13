@@ -8,14 +8,6 @@ public class Thief extends Adventurer{
     maxSneaky = 30;
   }
 
-  public Thief(String name){
-    this(name, 70);
-  }
-
-  public Thief(){
-    this("Shade");
-  }
-
   public String getSpecialName(){
     return "sneaky";
   }
