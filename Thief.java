@@ -63,16 +63,24 @@ public class Thief extends Adventurer{
 
   //heal or buff the target adventurer
   public String support(Adventurer other){
-
+    int refill = getSneaky();
+    other.setSpecial(other.getSpecial() + refill);
+    setSneaky(0);
+    return this + "reinvigorated" + other + "with their \"borrowed\" energy!";
   }
 
   //heal or buff self
   public String support(){
-
+    setSpecial(getSpecial() + getSneaky());
+    setSneaky(0);
+    return this + "gets extra sneaky and drops their stolen goods!";
   }
 
   //hurt or hinder the target adventurer, consume some special resource
   public String specialAttack(Adventurer other){
-
+    int damage = (int)(Math.random() * 12) + (getSpecial() * (2/3));
+    other.applyDamage(damage);
+    setSpecial(0);
+    return this + "surprises the enemy with a stab to the back, debilitating them for 3 turns!";
   }
 }
