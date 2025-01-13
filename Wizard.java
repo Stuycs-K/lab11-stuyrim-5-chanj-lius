@@ -35,13 +35,25 @@ public class Wizard extends Adventurer{
   }
 
   public String support(Adventurer other){
-    if (other.HP <= other.getmaxHP() - 5){
-      other.setHP(other.HP + 5);
+    if (other.getHP() <= other.getmaxHP() - 5){
+      other.setHP(other.getHP() + 5);
       return this.getName() " has healed " + other.getName() + " for 5 health!";
     }
     else{
       other.setHP(other.getmaxHP());
       return this.getName() " has healed " + other.getName() + " up to full health!";
+    }
+  }
+
+  public String support(){
+    super.restoreSpecial(20);
+    if (this.getHP() <= other.getmaxHP() - 5){
+      this.setHP(this.getHP() + 5);
+      return this.getName() + " did nothing, but supported themselves with 20 mana and 5 health.";
+    }
+    else{
+      this.setHP(this.getMaxHP());
+      return this.getName() + " did nothing, but supported themselves with 20 mana and full health.";
     }
   }
 }
