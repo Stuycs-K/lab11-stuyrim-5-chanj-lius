@@ -8,6 +8,10 @@ public class Wizard extends Adventurer{
     this.maxMana = 50;
   }
 
+  public Wizard(String name){
+    this(name, 100);
+  }
+
   public String getSpecialName(){
     return "mana";
   }
