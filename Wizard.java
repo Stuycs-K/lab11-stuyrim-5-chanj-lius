@@ -29,4 +29,15 @@ public class Wizard extends Adventurer{
     other.applyDamage(5);
     return this.getName() + " used attack! " + other.getName() + " has suffered 5 damage from " + this.getName() + "'s magical genius!";
   }
+
+  public String support(Adventurer other){
+    if (other.HP <= other.getmaxHP() - 5){
+      other.setHP(other.HP + 5);
+      return this.getName() " has healed " + other.getName() + " for 5 health!";
+    }
+    else{
+      other.setHP(other.getmaxHP());
+      return this.getName() " has healed " + other.getName() + " up to full health!";
+    }
+  }
 }
