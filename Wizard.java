@@ -56,4 +56,11 @@ public class Wizard extends Adventurer{
       return this.getName() + " did nothing, but supported themselves with 20 mana and full health.";
     }
   }
+
+  public String specialAttack(Adventurer other){
+    int temp = this.getSpecial();
+    other.applyDamage(this.getSpecial() * 3 / 4);
+    this.setSpecial(0);
+    return this.getName() + " used special attack! They extracted " + temp + " mana to do " + (temp * 3 / 4) + " damage!";
+  }
 }
