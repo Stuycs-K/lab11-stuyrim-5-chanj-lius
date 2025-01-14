@@ -57,13 +57,10 @@ public class Wizard extends Adventurer{
     }
   }
 
-<<<<<<< HEAD
-=======
   public String specialAttack(Adventurer other){
     int temp = this.getSpecial();
     other.applyDamage(this.getSpecial() * 3 / 4);
     this.setSpecial(0);
     return this.getName() + " used special attack! They extracted " + temp + " mana to do " + (temp * 3 / 4) + " damage!";
   }
->>>>>>> cf0bc7efbaf7132258ffd3351a749b96976b2d08
 }
