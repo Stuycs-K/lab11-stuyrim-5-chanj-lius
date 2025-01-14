@@ -9,4 +9,22 @@ public class Boss extends Adventurer{
     this.maxSneaky = 30;
   }
 
+  @Override
+  public String attack(Adventurer other){
+    int damage = (int)(Math.random() * 10) + 4;
+    other.applyDamage(damage);
+    //steal special from other to regen mana
+  }
+
+  public String support(Adventurer other){
+    //thief's support?
+  }
+
+  public String support(){
+    //wizard's support?
+  }
+
+  public String specialAttack(Adventurer other){
+    //wizard's special attack?
+  }
 }
