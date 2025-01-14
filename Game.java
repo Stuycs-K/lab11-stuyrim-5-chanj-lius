@@ -13,7 +13,17 @@ public class Game{
   //Do not write over the blank areas where text will appear or parties will appear.
   public static void drawBackground(){
     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-    //YOUR CODE HERE
+    for (int i = 0; i < HEIGHT; i++){
+      for (int j = 0; i < WIDTH; i++){
+        if (i == 0 || i == HEIGHT - 1 || j == 0 || j == WIDTH - 1){
+          System.out.print(".");
+        }
+        else{
+          System.out.print(" ");
+        }
+      }
+    }
+    System.out.println();
     /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
   }
 
