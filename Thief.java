@@ -32,11 +32,27 @@ public class Thief extends Adventurer{
     return maxSneaky;
   }
 
+  public String getSneakyName(){
+    return "stolen";
+  }
+
+  public int getSneaky(){
+    return sneaky;
+  }
+
+  public void setSneaky(int n){
+    sneaky = n;
+  }
+
+  public int getSneakyMax(){
+    return maxSneaky;
+  }
   /*
   all adventurers must have a way to attack enemies and
   support their allys
   */
   //hurt or hinder the target adventurer
+  @Override
   public String attack(Adventurer other){
     int damage = (int)(Math.random() * 10) + 2;
     other.applyDamage(damage);
