@@ -22,8 +22,8 @@ public class Game{
           System.out.print(" ");
         }
       }
+      System.out.println();
     }
-    System.out.println();
     /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
   }
 
@@ -33,6 +33,8 @@ public class Game{
   public static void drawText(String s,int startRow, int startCol){
     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
     //YOUR CODE HERE
+    Text.go(startRow, startCol);
+    System.out.print(s);
     /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
   }
 
@@ -49,6 +51,16 @@ public class Game{
   public static void TextBox(int row, int col, int width, int height, String text){
     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
     //YOUR CODE HERE
+    int start = 0;
+    int end = width;
+    while(!text.equals("")){
+      drawText(text, row, col);
+      if (text.length() > end){
+        text = text.substring(end, text.length());
+        row++;
+      }
+    }
+    System.out.println();
     /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
   }
 
