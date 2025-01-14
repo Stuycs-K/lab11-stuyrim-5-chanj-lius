@@ -8,6 +8,14 @@ public class Thief extends Adventurer{
     maxSneaky = 30;
   }
 
+  public Thief(String name){
+    this(name, 70);
+  }
+
+  public Thief(){
+    this("Shade");
+  }
+
   public String getSpecialName(){
     return "sneaky";
   }
@@ -39,13 +47,12 @@ public class Thief extends Adventurer{
   public int getSneakyMax(){
     return maxSneaky;
   }
-
-  @Override
   /*
   all adventurers must have a way to attack enemies and
   support their allys
   */
   //hurt or hinder the target adventurer
+  @Override
   public String attack(Adventurer other){
     int damage = (int)(Math.random() * 10) + 2;
     other.applyDamage(damage);
