@@ -157,6 +157,7 @@ public class Game{
     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
     //YOUR CODE HERE
     /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+    enemies.add(new Wizard("Bob", 70));
 
     //Adventurers you control:
     //Make an ArrayList of Adventurers and add 2-4 Adventurers to it.
@@ -164,6 +165,8 @@ public class Game{
     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
     //YOUR CODE HERE
     /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+    party.add(new Wizard("player1", 50));
+    party.add(new Thief("player2", 50));
 
     boolean partyTurn = true;
     int whichPlayer = 0;
@@ -210,7 +213,12 @@ public class Game{
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
           //YOUR CODE HERE
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-          System.out.println(party.get(0).support(enemies.get(0)));
+          if (input.charAt(input.length() - 1) == '0'){
+            System.out.println(party.get(0).support(enemies.get(0)));
+          }
+          else if (input.charAt(input.length() - 1) == '1'){
+            System.out.println(party.get(0).support());
+          }
         }
 
         //You should decide when you want to re-ask for user input
