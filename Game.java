@@ -257,18 +257,19 @@ public class Game{
         /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
         //YOUR CODE HERE
         /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-        int enemyInput = (int)(Math.random() * 4);
+        int enemyInput = (int)(Math.random() * 4), randoPlayer = (int)(Math.random() * party.size());
+        System.out.println("enemy input: " + enemyInput + ", rando: " + randoPlayer);
         if (enemyInput == 0){
-          System.out.println(enemies.get(whichOpponent).attack(party.get(0)));
+          System.out.println(enemies.get(whichOpponent).attack(party.get(randoPlayer)));
         }
         else if (enemyInput == 1){
-          System.out.println(enemies.get(whichOpponent).support(party.get(0)));
+          System.out.println(enemies.get(whichOpponent).support(party.get(randoPlayer)));
         }
         else if (enemyInput == 2){
           System.out.println(enemies.get(whichOpponent).support());
         }
         else{
-          System.out.println(enemies.get(whichOpponent).specialAttack(party.get(0)));
+          System.out.println(enemies.get(whichOpponent).specialAttack(party.get(randoPlayer)));
         }
 
         //Decide where to draw the following prompt:
