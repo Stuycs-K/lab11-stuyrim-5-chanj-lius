@@ -205,13 +205,13 @@ public class Game{
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
           //YOUR CODE HERE
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-          System.out.println(party.get(0).attack(enemies.get(0)));
+          System.out.println(party.get(whichPlayer).attack(enemies.get(0)));
         }
         else if(input.equals("special") || input.equals("sp")){
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
           //YOUR CODE HERE
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-          System.out.println(party.get(0).specialAttack(enemies.get(0)));
+          System.out.println(party.get(whichPlayer).specialAttack(enemies.get(0)));
         }
         else if(input.startsWith("su ") || input.startsWith("support ")){
           //"support 0" or "su 0" or "su 2" etc.
@@ -220,10 +220,10 @@ public class Game{
           //YOUR CODE HERE
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
           if (input.charAt(input.length() - 1) == '0'){
-            System.out.println(party.get(0).support(enemies.get(0)));
+            System.out.println(party.get(whichPlayer).support(enemies.get(0)));
           }
           else if (input.charAt(input.length() - 1) == '1'){
-            System.out.println(party.get(0).support());
+            System.out.println(party.get(whichPlayer).support());
           }
         }
 
@@ -256,7 +256,19 @@ public class Game{
         /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
         //YOUR CODE HERE
         /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-
+        int enemyInput = (int)(Math.random() * 4);
+        if (enemyInput == 0){
+          System.out.println(enemies.get(whichOpponent).attack(party.get(0)));
+        }
+        else if (enemyInput == 1){
+          System.out.println(enemies.get(whichOpponent).support(party.get(0)));
+        }
+        else if (enemyInput == 2){
+          System.out.println(enemies.get(whichOpponent).support());
+        }
+        else{
+          System.out.println(enemies.get(whichOpponent).specialAttack(party.get(0)));
+        }
 
         //Decide where to draw the following prompt:
         String prompt = "press enter to see next turn";
