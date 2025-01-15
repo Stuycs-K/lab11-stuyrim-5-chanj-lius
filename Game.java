@@ -86,6 +86,14 @@ public class Game{
 
       /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
       //YOUR CODE HERE
+      int advWidth = WIDTH / party.size();
+      for (int i = 0; i < party.size(); i++){
+        drawText(party.get(i), startRow, advWidth * i);
+        System.out.println();
+        drawText("HP: " + party.get(i).getHP(), startRow + 1, advWidth * i);
+        System.out.println();
+        drawText(party.get(i).getSpecialName() + party.get(i).getSpecial(), startRow + 2, advWidth * i);
+      }
       /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
     }
 
