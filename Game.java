@@ -27,20 +27,20 @@ public class Game{
     }
     */
     for (int i = 0; i < WIDTH; i++){
-      Text.go(i, 0);
-      System.out.println(".");
-      Text.go(i, 6);
-      System.out.println(".");
-      Text.go(i, 24);
-      System.out.println(".");
-      Text.go(i, 30);
-      System.out.println(".");
+      Text.go(0, i);
+      System.out.print("-");
+      Text.go(6, i);
+      System.out.print("-");
+      Text.go(24, i);
+      System.out.print("-");
+      Text.go(30, i);
+      System.out.print("-");
     }
     for (int i = 0; i < HEIGHT; i++){
-      Text.go(0, i);
-      System.out.println(".");
-      Text.go(80, i);
-      System.out.println(".");
+      Text.go(i, 0);
+      System.out.print(".");
+      Text.go(i, 80);
+      System.out.print(".");
     }
     /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
   }
