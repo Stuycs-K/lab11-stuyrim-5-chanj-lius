@@ -88,6 +88,13 @@ public class Game{
     //return a random adventurer (choose between all available subclasses)
     //feel free to overload this method to allow specific names/stats.
     public static Adventurer createRandomAdventurer(){
+      int random = (int)Math.random() * 3;
+      if (random == 0){
+        return new Wizard("Dangalf Gumbledore");
+      }
+      else if (random == 1){
+        return new Thief();
+      }
       return new CodeWarrior("Bob"+(int)(Math.random()*100));
     }
 
@@ -152,6 +159,8 @@ public class Game{
   public static String userInput(Scanner in){
       //Move cursor to prompt location
 
+      Text.go(7, 2);
+
       //show cursor
 
       String input = in.nextLine();
@@ -201,7 +210,7 @@ public class Game{
     //Draw the window border
 
     //You can add parameters to draw screen!
-    //drawScreen();//initial state.
+    drawScreen();//initial state.
 
     //Main loop
 
