@@ -189,6 +189,15 @@ public class Game{
     ArrayList<Adventurer>enemies = new ArrayList<Adventurer>();
     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
     //YOUR CODE HERE
+    int howMany = (int)(Math.random() * 3) + 1;
+    if (howMany == 1){
+      enemies.add(new Boss("The Voices", 150));
+    }
+    else{
+      for (int i = 0; i < howMany; i++){
+        enemies.add(createRandomAdventurer());
+      }
+    }
     /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
     enemies.add(new Wizard("Bob", 70));
 
@@ -197,6 +206,10 @@ public class Game{
     ArrayList<Adventurer> party = new ArrayList<>();
     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
     //YOUR CODE HERE
+    int allies = (int)(Math.random() * 3) + 2;
+    for (int i = 0; i < allies; i++){
+      party.add(createRandomAdventurer());
+    }
     /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
     party.add(new Wizard("player1", 50));
     party.add(new Thief("player2", 50));
