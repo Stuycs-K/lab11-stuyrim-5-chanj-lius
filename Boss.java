@@ -13,15 +13,18 @@ public class Boss extends Adventurer{
   public String attack(Adventurer other){
     int damage = (int)(Math.random() * 10) + 4;
     other.applyDamage(damage);
-    //steal special from other to regen mana
+    return "Boss has done " + damage + " damage to " + other;
   }
 
   public String support(Adventurer other){
-    //thief's support?
+    this.setSpecial(this.getSpecial() - 5);
+    other.setSpecial(other.getSpecial() + 5);
+    return "Boss has support other";
   }
 
   public String support(){
-    //wizard's support?
+    this.setSpecial(this.getSpecial() + 5);
+    return "Boss has support self";
   }
 
   public String specialAttack(Adventurer other){
