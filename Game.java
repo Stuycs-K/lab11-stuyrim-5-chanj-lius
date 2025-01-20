@@ -160,7 +160,7 @@ public class Game{
   public static String userInput(Scanner in){
       //Move cursor to prompt location
 
-      Text.go(7, 2);
+      Text.go(10, 2);
 
       //show cursor
 
@@ -230,6 +230,7 @@ public class Game{
     //Main loop
 
     //display this prompt at the start of the game.
+    Text.go(9,0);
     String preprompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit";
     System.out.println(preprompt);
 
@@ -279,6 +280,7 @@ public class Game{
         if(whichPlayer < party.size()){
           //This is a player turn.
           //Decide where to draw the following prompt:
+          Text.go(9,0);
           String prompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit";
           System.out.println(prompt);
 
@@ -286,6 +288,7 @@ public class Game{
         }else{
           //This is after the player's turn, and allows the user to see the enemy turn
           //Decide where to draw the following prompt:
+          Text.go(9,0);
           String prompt = "press enter to see monster's turn";
           System.out.println(prompt);
           partyTurn = false;
