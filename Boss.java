@@ -1,14 +1,30 @@
 public class Boss extends Adventurer{
-  private int mana, maxMana;
+  private int iq, maxiq;
 
   public Boss(String name, int hp){
     super(name, hp);
-    this.mana = 100;
-    this.maxMana = 100;
+    this.iq = 100;
+    this.maxiq = 100;
   }
 
   public Boss(String name){
     this(name, 100);
+  }
+
+  public String getSpecialName(){
+    return "study";
+  }
+
+  public int getSpecial(){
+    return iq;
+  }
+
+  public void setSpecial(int n){
+    iq = n;
+  }
+
+  public int getSpecialMax(){
+    return maxiq;
   }
 
   @Override
