@@ -146,14 +146,15 @@ public class Game{
   //Display the party and enemies
   //Do not write over the blank areas where text will appear.
   //Place the cursor at the place where the user will by typing their input at the end of this method.
-  public static void drawScreen(){
+  public static void drawScreen(ArrayList<Adventurer> party, ArrayList<Adventurer> enemies){
 
     drawBackground();
 
     //draw player party
+    drawParty(party, 2);
 
     //draw enemy party
-
+    drawParty(enemies, 6);
   }
 
   public static String userInput(Scanner in){
@@ -189,27 +190,28 @@ public class Game{
     ArrayList<Adventurer>enemies = new ArrayList<Adventurer>();
     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
     //YOUR CODE HERE
-    int howMany = (int)(Math.random() * 3) + 1;
+    //int howMany = (int)(Math.random() * 3) + 1;
+    int howMany = 1;
     if (howMany == 1){
       enemies.add(new Boss("The Voices", 150));
     }
-    else{
-      for (int i = 0; i < howMany; i++){
-        enemies.add(createRandomAdventurer());
-      }
-    }
+    //else{
+      //for (int i = 0; i < howMany; i++){
+        //enemies.add(createRandomAdventurer());
+      //}
+    //}
     /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-    enemies.add(new Wizard("Bob", 70));
+    //enemies.add(new Wizard("Bob", 70));
 
     //Adventurers you control:
     //Make an ArrayList of Adventurers and add 2-4 Adventurers to it.
     ArrayList<Adventurer> party = new ArrayList<>();
     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
     //YOUR CODE HERE
-    int allies = (int)(Math.random() * 3) + 2;
-    for (int i = 0; i < allies; i++){
-      party.add(createRandomAdventurer());
-    }
+    //int allies = (int)(Math.random() * 3) + 2;
+    //for (int i = 0; i < allies; i++){
+      //party.add(createRandomAdventurer());
+    //}
     /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
     party.add(new Wizard("player1", 50));
     party.add(new Thief("player2", 50));
@@ -223,7 +225,7 @@ public class Game{
     //Draw the window border
 
     //You can add parameters to draw screen!
-    drawScreen();//initial state.
+    drawScreen(party, enemies);//initial state.
 
     //Main loop
 
@@ -333,7 +335,7 @@ public class Game{
       }
 
       //display the updated screen after input has been processed.
-      drawScreen();
+      drawScreen(party, enemies);
 
 
     }//end of main game loop

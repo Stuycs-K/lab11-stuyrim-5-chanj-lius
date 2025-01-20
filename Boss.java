@@ -38,11 +38,11 @@ public class Boss extends Adventurer{
     this.restoreSpecial(this.getSpecial() + 5);
     if (other.getSpecial() - 5 < 0){
       other.setSpecial(0);
-      return this + " has borrowed all support from " + other "! What a steal!";
+      return this + " has borrowed all support from " + other + "! What a steal!";
     }
     else{
       other.setSpecial(other.getSpecial() - 5);
-      return this + " has borrowed 5 support from " + other "! What a steal!";
+      return this + " has borrowed 5 support from " + other + "! What a steal!";
     }
   }
 
