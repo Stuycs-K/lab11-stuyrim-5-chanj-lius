@@ -275,7 +275,17 @@ public class Game{
 
         //You should decide when you want to re-ask for user input
         //If no errors:
-        whichPlayer++;
+        if (party.get(whichPlayer).getHP() <= 0){
+          System.out.print("Oh noes!" + party.get(whichPlayer));
+          party.remove(whichPlayer);
+          if (party.size() == 0){
+            System.out.print("You lose.");
+            quit();
+          }
+        }
+        else{
+          whichPlayer++;
+        }
 
 
         if(whichPlayer < party.size()){
@@ -324,7 +334,17 @@ public class Game{
         //Decide where to draw the following prompt:
         String prompt = "press enter to see next turn";
 
-        whichOpponent++;
+        if (enemies.get(whichOpponent).getHP() <= 0){
+          System.out.print("Yippee!" + party.get(whichOpponent));
+          enemies.remove(whichOpponent);
+          if (enemies.size() == 0){
+            System.out.print("You win.");
+            quit();
+          }
+        }
+        else{
+          whichOpponent++;
+        }
 
       }//end of one enemy.
 
