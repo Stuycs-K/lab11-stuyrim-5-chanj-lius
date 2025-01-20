@@ -4,6 +4,7 @@ public class Thief extends Adventurer{
   public Thief(String name, int hp){
     super(name, hp);
     stolen = 0;
+    maxStolen = 15;
     sneaky = 30;
     maxSneaky = 30;
   }
@@ -32,20 +33,20 @@ public class Thief extends Adventurer{
     return maxSneaky;
   }
 
-  public String getSneakyName(){
+  public String getStolenName(){
     return "stolen";
   }
 
-  public int getSneaky(){
-    return sneaky;
+  public int getStolen(){
+    return stolen;
   }
 
-  public void setSneaky(int n){
-    sneaky = n;
+  public void setStolen(int n){
+    stolen = n;
   }
 
-  public int getSneakyMax(){
-    return maxSneaky;
+  public int getStolenMax(){
+    return maxStolen;
   }
   /*
   all adventurers must have a way to attack enemies and
@@ -57,7 +58,7 @@ public class Thief extends Adventurer{
     int damage = (int)(Math.random() * 10) + 2;
     other.applyDamage(damage);
     restoreSpecial(5);
-    setSneaky(damage/2);
+    setStolen(damage/2);
     other.setSpecial(other.getSpecial() - damage/2);
     return this + "shot " + other + " with their bow and filch their energy! They retreat to the shadows.";
   }
@@ -70,16 +71,16 @@ public class Thief extends Adventurer{
 
   //heal or buff the target adventurer
   public String support(Adventurer other){
-    int refill = getSneaky();
+    int refill = getStolen();
     other.setSpecial(other.getSpecial() + refill);
-    setSneaky(0);
+    setStolen(0);
     return this + "reinvigorated" + other + "with their \"borrowed\" energy!";
   }
 
   //heal or buff self
   public String support(){
-    setSpecial(getSpecial() + getSneaky());
-    setSneaky(0);
+    setSpecial(getSpecial() + getStolen());
+    setStolen(0);
     return this + "gets extra sneaky and drops their stolen goods!";
   }
 

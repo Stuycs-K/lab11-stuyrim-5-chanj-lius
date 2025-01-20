@@ -261,7 +261,7 @@ public class Game{
           //YOUR CODE HERE
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
           if (input.charAt(input.length() - 1) == '0'){
-            System.out.print(party.get(whichPlayer).support(enemies.get(0)));
+            System.out.print(party.get(whichPlayer).support(party.get(0)));
           }
           else if (input.charAt(input.length() - 1) == '1'){
             System.out.print(party.get(whichPlayer).support());
