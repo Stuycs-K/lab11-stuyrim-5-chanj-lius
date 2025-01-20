@@ -160,7 +160,7 @@ public class Game{
   public static String userInput(Scanner in){
       //Move cursor to prompt location
 
-      Text.go(10, 2);
+      Text.go(12, 2);
 
       //show cursor
 
@@ -190,16 +190,16 @@ public class Game{
     ArrayList<Adventurer>enemies = new ArrayList<Adventurer>();
     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
     //YOUR CODE HERE
-    //int howMany = (int)(Math.random() * 3) + 1;
-    int howMany = 1;
+    int howMany = (int)(Math.random() * 3) + 1;
+    //int howMany = 1;
     if (howMany == 1){
       enemies.add(new Boss("The Voices", 150));
     }
-    //else{
-      //for (int i = 0; i < howMany; i++){
-        //enemies.add(createRandomAdventurer());
-      //}
-    //}
+    else{
+      for (int i = 0; i < howMany; i++){
+        enemies.add(createRandomAdventurer());
+      }
+    }
     /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
     //enemies.add(new Wizard("Bob", 70));
 
@@ -208,13 +208,13 @@ public class Game{
     ArrayList<Adventurer> party = new ArrayList<>();
     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
     //YOUR CODE HERE
-    //int allies = (int)(Math.random() * 3) + 2;
-    //for (int i = 0; i < allies; i++){
-      //party.add(createRandomAdventurer());
-    //}
+    int allies = (int)(Math.random() * 3) + 2;
+    for (int i = 0; i < allies; i++){
+      party.add(createRandomAdventurer());
+    }
     /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-    party.add(new Wizard("player1", 50));
-    party.add(new Thief("player2", 50));
+    //party.add(new Wizard("player1", 50));
+    //party.add(new Thief("player2", 50));
 
     boolean partyTurn = true;
     int whichPlayer = 0;
@@ -230,7 +230,7 @@ public class Game{
     //Main loop
 
     //display this prompt at the start of the game.
-    Text.go(9,0);
+    Text.go(11,2);
     String preprompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit";
     System.out.println(preprompt);
 
@@ -246,17 +246,18 @@ public class Game{
       if(partyTurn){
 
         //Process user input for the last Adventurer:
+        Text.go(9,2);
         if(input.equals("attack") || input.equals("a")){
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
           //YOUR CODE HERE
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-          System.out.println(party.get(whichPlayer).attack(enemies.get(0)));
+          System.out.print(party.get(whichPlayer).attack(enemies.get(0)));
         }
         else if(input.equals("special") || input.equals("sp")){
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
           //YOUR CODE HERE
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-          System.out.println(party.get(whichPlayer).specialAttack(enemies.get(0)));
+          System.out.print(party.get(whichPlayer).specialAttack(enemies.get(0)));
         }
         else if(input.startsWith("su ") || input.startsWith("support ")){
           //"support 0" or "su 0" or "su 2" etc.
@@ -265,10 +266,10 @@ public class Game{
           //YOUR CODE HERE
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
           if (input.charAt(input.length() - 1) == '0'){
-            System.out.println(party.get(whichPlayer).support(enemies.get(0)));
+            System.out.print(party.get(whichPlayer).support(enemies.get(0)));
           }
           else if (input.charAt(input.length() - 1) == '1'){
-            System.out.println(party.get(whichPlayer).support());
+            System.out.print(party.get(whichPlayer).support());
           }
         }
 
@@ -280,17 +281,17 @@ public class Game{
         if(whichPlayer < party.size()){
           //This is a player turn.
           //Decide where to draw the following prompt:
-          Text.go(9,0);
+          Text.go(11,2);
           String prompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit";
-          System.out.println(prompt);
+          System.out.print(prompt);
 
 
         }else{
           //This is after the player's turn, and allows the user to see the enemy turn
           //Decide where to draw the following prompt:
-          Text.go(9,0);
+          Text.go(11,2);
           String prompt = "press enter to see monster's turn";
-          System.out.println(prompt);
+          System.out.print(prompt);
           partyTurn = false;
           whichOpponent = 0;
         }
@@ -304,19 +305,20 @@ public class Game{
         /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
         //YOUR CODE HERE
         /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+        Text.go(9,2);
         int enemyInput = (int)(Math.random() * 4), randoPlayer = (int)(Math.random() * party.size());
-        System.out.println("enemy input: " + enemyInput + ", rando: " + randoPlayer);
+        System.out.print("enemy input: " + enemyInput + ", rando: " + randoPlayer);
         if (enemyInput == 0){
-          System.out.println(enemies.get(whichOpponent).attack(party.get(randoPlayer)));
+          System.out.print(enemies.get(whichOpponent).attack(party.get(randoPlayer)));
         }
         else if (enemyInput == 1){
-          System.out.println(enemies.get(whichOpponent).support(party.get(randoPlayer)));
+          System.out.print(enemies.get(whichOpponent).support(party.get(randoPlayer)));
         }
         else if (enemyInput == 2){
-          System.out.println(enemies.get(whichOpponent).support());
+          System.out.print(enemies.get(whichOpponent).support());
         }
         else{
-          System.out.println(enemies.get(whichOpponent).specialAttack(party.get(randoPlayer)));
+          System.out.print(enemies.get(whichOpponent).specialAttack(party.get(randoPlayer)));
         }
 
         //Decide where to draw the following prompt:
