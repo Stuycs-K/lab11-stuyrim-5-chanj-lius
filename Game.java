@@ -161,6 +161,8 @@ public class Game{
 
       //clear the text that was written
 
+      Text.clear();
+
       return input;
   }
 
