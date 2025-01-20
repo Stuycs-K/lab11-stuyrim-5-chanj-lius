@@ -56,7 +56,7 @@ public class Game{
   public static void TextBox(int row, int col, int width, int height, String text){
     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
     //YOUR CODE HERE
-    int start = 0;
+    int start = row;
     int end = width;
     while(!text.equals("")){
       drawText(text, row, col);
@@ -65,7 +65,12 @@ public class Game{
         row++;
       }
     }
-    // while ()
+    while ((row - start) < height){
+      for (int i = 0; i < width; i++){
+        System.out.print(" ");
+      }
+      row++;
+    }
     System.out.println();
     /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
   }
