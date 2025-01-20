@@ -52,6 +52,9 @@ public class Boss extends Adventurer{
   }
 
   public String specialAttack(Adventurer other){
-
+    int damage = (int)(this.getSpecial() / 4);
+    other.applyDamage(damage);
+    this.setSpecial(0);
+    return this + " harnessed their knowledge to deal " + damage + " damage to " + other + "!";
   }
 }
