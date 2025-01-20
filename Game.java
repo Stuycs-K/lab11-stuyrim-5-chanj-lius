@@ -13,19 +13,6 @@ public class Game{
   //Do not write over the blank areas where text will appear or parties will appear.
   public static void drawBackground(){
     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-    /*
-    for (int i = 0; i < HEIGHT; i++){
-      for (int j = 0; i < WIDTH; i++){
-        if (i == 0 || i == HEIGHT - 1 || j == 0 || j == WIDTH - 1){
-          System.out.print(".");
-        }
-        else{
-          System.out.print(" ");
-        }
-      }
-      System.out.println();
-    }
-    */
     for (int i = 0; i < WIDTH; i++){
       Text.go(0, i);
       System.out.print("-");
@@ -78,6 +65,7 @@ public class Game{
         row++;
       }
     }
+    // while ()
     System.out.println();
     /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
   }
@@ -88,7 +76,7 @@ public class Game{
     //return a random adventurer (choose between all available subclasses)
     //feel free to overload this method to allow specific names/stats.
     public static Adventurer createRandomAdventurer(){
-      int random = (int)Math.random() * 3;
+      int random = (int)(Math.random() * 3);
       if (random == 0){
         return new Wizard("Dangalf Gumbledore");
       }
@@ -117,7 +105,7 @@ public class Game{
         System.out.println();
         drawText("HP: " + party.get(i).getHP(), startRow + 1, advWidth * i);
         System.out.println();
-        drawText(party.get(i).getSpecialName() + party.get(i).getSpecial(), startRow + 2, advWidth * i);
+        drawText(party.get(i).getSpecialName() + ": "+ party.get(i).getSpecial(), startRow + 2, advWidth * i);
       }
       /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
     }
@@ -130,10 +118,10 @@ public class Game{
     // under 25% : red
     // under 75% : yellow
     // otherwise : white
-    if ((double)(hp/maxHP) < 0.25){
+    if ((double)(hp/maxHP) <= 0.25){
       Text.colorize(output, Text.RED);
     }
-    else if ((double)(hp/maxHP) < 0.75){
+    else if ((double)(hp/maxHP) <= 0.75){
       Text.colorize(output, Text.YELLOW);
     }
     return output;
