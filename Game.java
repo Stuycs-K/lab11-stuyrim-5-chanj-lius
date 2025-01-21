@@ -289,12 +289,12 @@ public class Game{
             System.out.print("You have defeated an enemy.");
             enemies.remove(i);
             i--;
-            if (enemies.size() == 0){
-              Text.go(16,2);
-              System.out.print("WINNER!");
-              quit();
-            }
           }
+        }
+        if (enemies.size() == 0){
+          Text.go(16,2);
+          System.out.print("WINNER!");
+          quit();
         }/*
         if (enemies.get(whichOpponent).getHP() <= 0){
           System.out.print("Yippee!" + party.get(whichOpponent));
@@ -357,12 +357,12 @@ public class Game{
             System.out.print("You suck.");
             party.remove(i);
             i--;
-            if (party.size() == 0){
-              Text.go(16,2);
-              System.out.print("LOSER!");
-              quit();
-            }
           }
+        }
+        if (party.size() == 0){
+          Text.go(16,2);
+          System.out.print("LOSER!");
+          quit();
         }
 
         //Decide where to draw the following prompt:
@@ -388,7 +388,19 @@ public class Game{
       }
 
       //display the updated screen after input has been processed.
-      drawScreen(party, enemies);
+      if (party.size() == 0){
+        Text.go(16,2);
+        System.out.print("LOSER!");
+        input = "quit";
+      }
+      else if (enemies.size() == 0){
+        Text.go(16,2);
+        System.out.print("WINNER!");
+        input = "quit";
+      }
+      else{
+        drawScreen(party, enemies);
+      }
 
 
     }//end of main game loop
