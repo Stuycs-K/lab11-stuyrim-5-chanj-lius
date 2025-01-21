@@ -244,17 +244,22 @@ public class Game{
 
         //Process user input for the last Adventurer:
         Text.go(7,2);
+        int randoenemy = (int)(Math.random() * enemies.size());
+        int randoally = (int)(Math.random() * party.size());
+        while (randoally == whichPlayer){
+          randoally = (int)(Math.random() * party.size());
+        }
         if(input.equals("attack") || input.equals("a")){
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
           //YOUR CODE HERE
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-          System.out.print(party.get(whichPlayer).attack(enemies.get(0)));
+          System.out.print(party.get(whichPlayer).attack(enemies.get(randoenemy)));
         }
         else if(input.equals("special") || input.equals("sp")){
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
           //YOUR CODE HERE
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-          System.out.print(party.get(whichPlayer).specialAttack(enemies.get(0)));
+          System.out.print(party.get(whichPlayer).specialAttack(enemies.get(randoenemy)));
         }
         else if(input.startsWith("su ") || input.startsWith("support ")){
           //"support 0" or "su 0" or "su 2" etc.
@@ -263,11 +268,14 @@ public class Game{
           //YOUR CODE HERE
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
           if (input.charAt(input.length() - 1) == '0'){
-            System.out.print(party.get(whichPlayer).support(party.get(0)));
+            System.out.print(party.get(whichPlayer).support(party.get(randoally)));
           }
           else if (input.charAt(input.length() - 1) == '1'){
             System.out.print(party.get(whichPlayer).support());
           }
+        }
+        else if(input.startsWith("q") || input.startsWith("quit")){
+          System.out.print("You have quit the program.");
         }
 
         //You should decide when you want to re-ask for user input
@@ -336,14 +344,22 @@ public class Game{
         //YOUR CODE HERE
         /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
         Text.go(7,2);
-        int enemyInput = (int)(Math.random() * 4), randoPlayer = (int)(Math.random() * party.size());
+        int enemyInput = (int)(Math.random() * 4), randoPlayer = (int)(Math.random() * party.size()), randoopponent = (int)(Math.random() * enemies.size());
+        while(enemies.size() != 1 && randoopponent == whichOpponent){
+          randoopponent = (int)(Math.random() * enemies.size());
+        }
         System.out.print("enemy input: " + enemyInput + ", rando: " + randoPlayer);
         Text.go(8,2);
         if (enemyInput == 0){
           System.out.print(enemies.get(whichOpponent).attack(party.get(randoPlayer)));
         }
         else if (enemyInput == 1){
-          System.out.print(enemies.get(whichOpponent).support(party.get(randoPlayer)));
+          if (enemies.size() == 1){
+            System.out.print(enemies.get(whichOpponent).support());
+          }
+          else{
+            System.out.print(enemies.get(whichOpponent).support(enemies.get(randoopponent)));
+          }
         }
         else if (enemyInput == 2){
           System.out.print(enemies.get(whichOpponent).support());
