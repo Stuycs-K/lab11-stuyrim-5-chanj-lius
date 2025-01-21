@@ -313,6 +313,7 @@ public class Game{
         Text.go(9,2);
         int enemyInput = (int)(Math.random() * 4), randoPlayer = (int)(Math.random() * party.size());
         System.out.print("enemy input: " + enemyInput + ", rando: " + randoPlayer);
+        Text.go(10,2);
         if (enemyInput == 0){
           System.out.print(enemies.get(whichOpponent).attack(party.get(randoPlayer)));
         }
@@ -326,9 +327,6 @@ public class Game{
           System.out.print(enemies.get(whichOpponent).specialAttack(party.get(randoPlayer)));
         }
 
-        //Decide where to draw the following prompt:
-        String prompt = "press enter to see next turn";
-
         if (enemies.get(whichOpponent).getHP() <= 0){
           System.out.print("Yippee!" + party.get(whichOpponent));
           enemies.remove(whichOpponent);
@@ -339,6 +337,13 @@ public class Game{
         }
         else{
           whichOpponent++;
+        }
+
+        //Decide where to draw the following prompt:
+        if (whichOpponent < enemies.size()){
+          Text.go(11,2);
+          String prompt = "press enter to see next turn";
+          System.out.print(prompt);
         }
 
       }//end of one enemy.
@@ -352,6 +357,8 @@ public class Game{
         partyTurn=true;
         //display this prompt before player's turn
         String prompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit";
+        Text.go(11,2);
+        System.out.print(prompt);
       }
 
       //display the updated screen after input has been processed.
