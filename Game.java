@@ -270,6 +270,7 @@ public class Game{
 
         //You should decide when you want to re-ask for user input
         //If no errors:
+        /*
         if (party.get(whichPlayer).getHP() <= 0){
           System.out.print("Oh noes!" + party.get(whichPlayer));
           party.remove(whichPlayer);
@@ -280,7 +281,29 @@ public class Game{
         }
         else{
           whichPlayer++;
-        }
+        }*/
+        whichPlayer++;
+        for (int i = 0; i < enemies.size(); i++){
+          if (enemies.get(i).getHP() <= 0){
+            Text.go(15,2);
+            System.out.print("You have defeated an enemy.");
+            enemies.remove(i);
+            i--;
+            if (enemies.size() == 0){
+              Text.go(16,2);
+              System.out.print("WINNER!");
+              quit();
+            }
+          }
+        }/*
+        if (enemies.get(whichOpponent).getHP() <= 0){
+          System.out.print("Yippee!" + party.get(whichOpponent));
+          enemies.remove(whichOpponent);
+          if (enemies.size() == 0){
+            System.out.print("You win.");
+            quit();
+          }
+        }*/
 
 
         if(whichPlayer < party.size()){
@@ -327,16 +350,19 @@ public class Game{
           System.out.print(enemies.get(whichOpponent).specialAttack(party.get(randoPlayer)));
         }
 
-        if (enemies.get(whichOpponent).getHP() <= 0){
-          System.out.print("Yippee!" + party.get(whichOpponent));
-          enemies.remove(whichOpponent);
-          if (enemies.size() == 0){
-            System.out.print("You win.");
-            quit();
+        whichOpponent++;
+        for (int i = 0; i < party.size(); i++){
+          if (party.get(i).getHP() <= 0){
+            Text.go(15,2);
+            System.out.print("You suck.");
+            party.remove(i);
+            i--;
+            if (party.size() == 0){
+              Text.go(16,2);
+              System.out.print("LOSER!");
+              quit();
+            }
           }
-        }
-        else{
-          whichOpponent++;
         }
 
         //Decide where to draw the following prompt:
