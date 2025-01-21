@@ -82,13 +82,16 @@ public class Game{
     //feel free to overload this method to allow specific names/stats.
     public static Adventurer createRandomAdventurer(){
       int random = (int)(Math.random() * 3);
+      int name = (int)(Math.random() * 5);
+      String[] wizardNames = new String[]{"Dangalf Gumbledore", "Parry Potter", "Hermione Ranger", "Won Reasley", "Mraco Dalfoy"};
+      String[] thiefNames = new String[]{"Shade", "Lootar", "Black Phantom", "Pockpucket", "Gru"};
       if (random == 0){
-        return new Wizard("Dangalf Gumbledore");
+        return new Wizard(wizardNames[name]);
       }
       else if (random == 1){
-        return new Thief();
+        return new Thief(thiefNames[name]);
       }
-      return new CodeWarrior("Bob"+(int)(Math.random()*100));
+      return new CodeWarrior("CS Major #"+(int)(Math.random()*10000));
     }
 
     /*Display a List of 2-4 adventurers on the rows row through row+3 (4 rows max)
