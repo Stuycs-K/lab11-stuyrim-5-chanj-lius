@@ -59,7 +59,12 @@ public class Thief extends Adventurer{
     other.applyDamage(damage);
     restoreSpecial(5);
     setStolen(damage/2);
-    other.setSpecial(other.getSpecial() - damage/2);
+    if (other.getSpecial() - damage/2 <= 0){
+      other.setSpecial(0);
+    }
+    else{
+      other.setSpecial(other.getSpecial() - damage/2);
+    }
     return this + " shot " + other + " with their bow and filch their energy! They retreat to the shadows.";
   }
 

@@ -156,7 +156,7 @@ public class Game{
   public static String userInput(Scanner in){
       //Move cursor to prompt location
 
-      Text.go(13, 2);
+      Text.go(11, 2);
 
       //show cursor
 
@@ -246,7 +246,7 @@ public class Game{
         Text.go(7,2);
         int randoenemy = (int)(Math.random() * enemies.size());
         int randoally = (int)(Math.random() * party.size());
-        while (randoally == whichPlayer){
+        while (party.size() != 1 && randoally == whichPlayer){
           randoally = (int)(Math.random() * party.size());
         }
         if(input.equals("attack") || input.equals("a")){
@@ -295,16 +295,11 @@ public class Game{
         whichPlayer++;
         for (int i = 0; i < enemies.size(); i++){
           if (enemies.get(i).getHP() <= 0){
-            Text.go(15,2);
+            Text.go(13,2);
             System.out.print("You have defeated an enemy.");
             enemies.remove(i);
             i--;
           }
-        }
-        if (enemies.size() == 0){
-          Text.go(16,2);
-          System.out.print("WINNER!");
-          quit();
         }/*
         if (enemies.get(whichOpponent).getHP() <= 0){
           System.out.print("Yippee!" + party.get(whichOpponent));
@@ -348,8 +343,6 @@ public class Game{
         while(enemies.size() != 1 && randoopponent == whichOpponent){
           randoopponent = (int)(Math.random() * enemies.size());
         }
-        System.out.print("enemy input: " + enemyInput + ", rando: " + randoPlayer);
-        Text.go(8,2);
         if (enemyInput == 0){
           System.out.print(enemies.get(whichOpponent).attack(party.get(randoPlayer)));
         }
@@ -371,16 +364,11 @@ public class Game{
         whichOpponent++;
         for (int i = 0; i < party.size(); i++){
           if (party.get(i).getHP() <= 0){
-            Text.go(15,2);
+            Text.go(13,2);
             System.out.print("You suck.");
             party.remove(i);
             i--;
           }
-        }
-        if (party.size() == 0){
-          Text.go(16,2);
-          System.out.print("LOSER!");
-          quit();
         }
 
         //Decide where to draw the following prompt:
@@ -408,13 +396,13 @@ public class Game{
       //display the updated screen after input has been processed.
       if (party.size() == 0){
         drawBackground();
-        Text.go(16,2);
+        Text.go(14,2);
         System.out.print("LOSER!");
         input = "quit";
       }
       else if (enemies.size() == 0){
         drawBackground();
-        Text.go(16,2);
+        Text.go(14,2);
         System.out.print("WINNER!");
         input = "quit";
       }
