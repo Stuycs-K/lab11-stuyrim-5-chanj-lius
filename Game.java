@@ -153,7 +153,7 @@ public class Game{
   public static String userInput(Scanner in){
       //Move cursor to prompt location
 
-      Text.go(12, 2);
+      Text.go(13, 2);
 
       //show cursor
 
@@ -225,13 +225,12 @@ public class Game{
     //Main loop
 
     //display this prompt at the start of the game.
-    Text.go(11,2);
+    Text.go(12,2);
     String preprompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit";
     System.out.println(preprompt);
 
     while(! (input.equalsIgnoreCase("q") || input.equalsIgnoreCase("quit"))){
       //Read user input
-
       input = userInput(in);
 
       //example debug statment
@@ -309,7 +308,7 @@ public class Game{
         if(whichPlayer < party.size()){
           //This is a player turn.
           //Decide where to draw the following prompt:
-          Text.go(11,2);
+          Text.go(12,2);
           String prompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit";
           System.out.print(prompt);
 
@@ -317,7 +316,7 @@ public class Game{
         }else{
           //This is after the player's turn, and allows the user to see the enemy turn
           //Decide where to draw the following prompt:
-          Text.go(11,2);
+          Text.go(12,2);
           String prompt = "press enter to see monster's turn";
           System.out.print(prompt);
           partyTurn = false;
@@ -367,7 +366,7 @@ public class Game{
 
         //Decide where to draw the following prompt:
         if (whichOpponent < enemies.size()){
-          Text.go(11,2);
+          Text.go(12,2);
           String prompt = "press enter to see next turn";
           System.out.print(prompt);
         }
@@ -383,17 +382,19 @@ public class Game{
         partyTurn=true;
         //display this prompt before player's turn
         String prompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit";
-        Text.go(11,2);
+        Text.go(12,2);
         System.out.print(prompt);
       }
 
       //display the updated screen after input has been processed.
       if (party.size() == 0){
+        drawBackground();
         Text.go(16,2);
         System.out.print("LOSER!");
         input = "quit";
       }
       else if (enemies.size() == 0){
+        drawBackground();
         Text.go(16,2);
         System.out.print("WINNER!");
         input = "quit";
