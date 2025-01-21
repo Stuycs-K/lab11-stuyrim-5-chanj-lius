@@ -12,7 +12,6 @@ public class Game{
   //Display the borders of your screen that will not change.
   //Do not write over the blank areas where text will appear or parties will appear.
   public static void drawBackground(){
-    /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
     for (int i = 0; i < WIDTH; i++){
       Text.go(0, i);
       System.out.print("-");
@@ -29,18 +28,14 @@ public class Game{
       Text.go(i, 80);
       System.out.print(".");
     }
-    /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
   }
 
   //Display a line of text starting at
   //(columns and rows start at 1 (not zero) in the terminal)
   //use this method in your other text drawing methods to make things simpler.
   public static void drawText(String s,int startRow, int startCol){
-    /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-    //YOUR CODE HERE
     Text.go(startRow, startCol);
     System.out.print(s);
-    /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
   }
 
   /*Use this method to place text on the screen at a particular location.
@@ -54,8 +49,6 @@ public class Game{
   *@param height the number of rows
   */
   public static void TextBox(int row, int col, int width, int height, String text){
-    /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-    //YOUR CODE HERE
     int start = row;
     int end = width;
     while(!text.equals("")){
@@ -72,7 +65,6 @@ public class Game{
       row++;
     }
     System.out.println();
-    /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
   }
 
 
@@ -104,9 +96,6 @@ public class Game{
     * ***THIS ROW INTENTIONALLY LEFT BLANK***
     */
     public static void drawParty(ArrayList<Adventurer> party,int startRow){
-
-      /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-      //YOUR CODE HERE
       int advWidth = WIDTH / party.size();
       for (int i = 0; i < party.size(); i++){
         drawText(party.get(i).getName(), startRow, advWidth * i);
@@ -115,7 +104,6 @@ public class Game{
         System.out.println();
         drawText(party.get(i).getSpecialName() + ": "+ party.get(i).getSpecial(), startRow + 2, advWidth * i);
       }
-      /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
     }
 
 
@@ -186,10 +174,7 @@ public class Game{
     //If only 1 enemy is added it should be the boss class.
     //start with 1 boss and modify the code to allow 2-3 adventurers later.
     ArrayList<Adventurer>enemies = new ArrayList<Adventurer>();
-    /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-    //YOUR CODE HERE
     int howMany = (int)(Math.random() * 3) + 1;
-    //int howMany = 1;
     if (howMany == 1){
       enemies.add(new Boss("The Voices", 150));
     }
@@ -198,21 +183,14 @@ public class Game{
         enemies.add(createRandomAdventurer());
       }
     }
-    /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-    //enemies.add(new Wizard("Bob", 70));
 
     //Adventurers you control:
     //Make an ArrayList of Adventurers and add 2-4 Adventurers to it.
     ArrayList<Adventurer> party = new ArrayList<>();
-    /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-    //YOUR CODE HERE
     int allies = (int)(Math.random() * 3) + 2;
     for (int i = 0; i < allies; i++){
       party.add(createRandomAdventurer());
     }
-    /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-    //party.add(new Wizard("player1", 50));
-    //party.add(new Thief("player2", 50));
 
     boolean partyTurn = true;
     int whichPlayer = 0;
@@ -250,23 +228,14 @@ public class Game{
           randoally = (int)(Math.random() * party.size());
         }
         if(input.equals("attack") || input.equals("a")){
-          /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-          //YOUR CODE HERE
-          /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
           System.out.print(party.get(whichPlayer).attack(enemies.get(randoenemy)));
         }
         else if(input.equals("special") || input.equals("sp")){
-          /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-          //YOUR CODE HERE
-          /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
           System.out.print(party.get(whichPlayer).specialAttack(enemies.get(randoenemy)));
         }
         else if(input.startsWith("su ") || input.startsWith("support ")){
           //"support 0" or "su 0" or "su 2" etc.
           //assume the value that follows su  is an integer.
-          /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-          //YOUR CODE HERE
-          /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
           if (input.charAt(input.length() - 1) == '0'){
             System.out.print(party.get(whichPlayer).support(party.get(randoally)));
           }
@@ -283,18 +252,6 @@ public class Game{
 
         //You should decide when you want to re-ask for user input
         //If no errors:
-        /*
-        if (party.get(whichPlayer).getHP() <= 0){
-          System.out.print("Oh noes!" + party.get(whichPlayer));
-          party.remove(whichPlayer);
-          if (party.size() == 0){
-            System.out.print("You lose.");
-            quit();
-          }
-        }
-        else{
-          whichPlayer++;
-        }*/
         whichPlayer++;
         for (int i = 0; i < enemies.size(); i++){
           if (enemies.get(i).getHP() <= 0){
@@ -303,15 +260,7 @@ public class Game{
             enemies.remove(i);
             i--;
           }
-        }/*
-        if (enemies.get(whichOpponent).getHP() <= 0){
-          System.out.print("Yippee!" + party.get(whichOpponent));
-          enemies.remove(whichOpponent);
-          if (enemies.size() == 0){
-            System.out.print("You win.");
-            quit();
-          }
-        }*/
+        }
 
 
         if(whichPlayer < party.size()){
@@ -338,9 +287,6 @@ public class Game{
 
         //enemy attacks a randomly chosen person with a randomly chosen attack.z`
         //Enemy action choices go here!
-        /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-        //YOUR CODE HERE
-        /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
         Text.go(7,2);
         int enemyInput = (int)(Math.random() * 4), randoPlayer = (int)(Math.random() * party.size()), randoopponent = (int)(Math.random() * enemies.size());
         while(enemies.size() != 1 && randoopponent == whichOpponent){
