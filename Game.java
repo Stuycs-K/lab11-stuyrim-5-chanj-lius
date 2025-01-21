@@ -229,7 +229,7 @@ public class Game{
 
     //display this prompt at the start of the game.
     Text.go(10,2);
-    String preprompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit";
+    String preprompt = "Enter command for "+party.get(whichPlayer)+": attack/special/suppport 0/support 1/quit";
     System.out.println(preprompt);
 
     while(! (input.equalsIgnoreCase("q") || input.equalsIgnoreCase("quit"))){
@@ -276,6 +276,9 @@ public class Game{
         }
         else if(input.startsWith("q") || input.startsWith("quit")){
           System.out.print("You have quit the program.");
+        }
+        else{
+          System.out.print("Invalid input. Type 'a' for attack, 'sp' for special, 'su 0' to support a random ally (if applicible), 'su 1' to support yourself, or 'q' to quit.");
         }
 
         //You should decide when you want to re-ask for user input
@@ -388,7 +391,7 @@ public class Game{
         turn++;
         partyTurn=true;
         //display this prompt before player's turn
-        String prompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit";
+        String prompt = "Enter command for "+party.get(whichPlayer)+": attack/special/suppport 0/support 1/quit";
         Text.go(10,2);
         System.out.print(prompt);
       }
