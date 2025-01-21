@@ -60,7 +60,7 @@ public class Thief extends Adventurer{
     restoreSpecial(5);
     setStolen(damage/2);
     other.setSpecial(other.getSpecial() - damage/2);
-    return this + "shot " + other + " with their bow and filch their energy! They retreat to the shadows.";
+    return this + " shot " + other + " with their bow and filch their energy! They retreat to the shadows.";
   }
 
   /*This is an example of an improvement that you can make to allow
@@ -74,14 +74,14 @@ public class Thief extends Adventurer{
     int refill = getStolen();
     other.setSpecial(other.getSpecial() + refill);
     setStolen(0);
-    return this + "reinvigorated" + other + "with their \"borrowed\" energy!";
+    return this + " reinvigorated" + other + "with their \"borrowed\" energy!";
   }
 
   //heal or buff self
   public String support(){
     setSpecial(getSpecial() + getStolen());
     setStolen(0);
-    return this + "gets extra sneaky and drops their stolen goods!";
+    return this + " gets extra sneaky and drops their stolen goods!";
   }
 
   //hurt or hinder the target adventurer, consume some special resource
@@ -89,6 +89,6 @@ public class Thief extends Adventurer{
     int damage = (int)(Math.random() * 12) + (getSpecial() * (2/3));
     other.applyDamage(damage);
     setSpecial(0);
-    return this + "surprises the enemy with a stab to the back, debilitating them for 3 turns!";
+    return this + " surprises the enemy with a stab to the back, debilitating them for " + damage + " damage!";
   }
 }
