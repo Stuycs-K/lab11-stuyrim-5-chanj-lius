@@ -12,7 +12,7 @@ public class Boss extends Adventurer{
   }
 
   public String getSpecialName(){
-    return "study";
+    return "iq";
   }
 
   public int getSpecial(){

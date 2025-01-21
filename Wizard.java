@@ -12,6 +12,10 @@ public class Wizard extends Adventurer{
     this(name, 100);
   }
 
+  public Wizard(){
+    this("Barry");
+  }
+
   public String getSpecialName(){
     return "mana";
   }
